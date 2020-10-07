@@ -1,2 +1,2 @@
 # awesome-python-snippets
-this Repo contains snippets of program Programs
+this Repo contains snippets of python Programs
