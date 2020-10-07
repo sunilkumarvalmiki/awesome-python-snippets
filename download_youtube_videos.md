@@ -1,6 +1,6 @@
 --- 
-[pytube](#pytube):
-[pafy](#pafy):
+[pytube](#pytube) : https://pypi.org/project/pytube/
+[pafy](#pafy) : https://pypi.org/project/pafy/
 ---
 
 
