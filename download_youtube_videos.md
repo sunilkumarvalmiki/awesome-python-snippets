@@ -1,7 +1,6 @@
---- 
-[pytube](#pytube) : https://pypi.org/project/pytube/
-[pafy](#pafy) : https://pypi.org/project/pafy/
----
+
+- [pytube](#pytube): [https://pypi.org/project/pytube/](https://pypi.org/project/pytube/)
+- [pafy](#pafy): [https://pypi.org/project/pafy/](https://pypi.org/project/pafy/)
 
 
 ## PYTUBE 
