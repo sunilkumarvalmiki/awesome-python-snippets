@@ -1,44 +1,46 @@
 
-- [pytube](#pytube): [https://pypi.org/project/pytube/](https://pypi.org/project/pytube/)
+- [pytube3](#pytube): [https://pypi.org/project/pytube3/](https://pypi.org/project/pytube3/)
 - [pafy](#pafy): [https://pypi.org/project/pafy/](https://pypi.org/project/pafy/)
 
 
 ## PYTUBE 
 - Install Pytube Library :
 ```py
-pip install pytube
+pip install pytube3
 ```
 
 ```py
+
 #importing the module 
-from pytube import YouTube 
+from pytube import YouTube
 
-#Locatn to save the downloaded video
-SAVE_PATH = "S:\youtube" 
+try:
+    #link of the video to be downloaded 
+    yt = YouTube('https://www.youtube.com/watch?v=HRmdj-HpJyE&ab_channel=TraversyMedia')
+except:
+    print("given url is not valid")
 
-#link of the video to be downloaded 
-link="https://www.youtube.com/watch?v=HRmdj-HpJyE&ab_channel=TraversyMedia"
+#to get the name of the file 
+print("title : " + yt.title)
+
+# to get thumbnail url
+print("thumbnail : " + yt.thumbnail_url)
+
+try:
+    #get the video with the resolution passed in the get('137') function, 137-1080.
+    stream = yt.streams.get_by_itag('137')
+except:
+    print("Given itag is not present, Please change the itag")
 
 try: 
-	#object creation using YouTube which was imported in the beginning 
-	yt = YouTube(link) 
-except: 
-	print("Connection Error") #to handle exception 
+    #Downloading to the below location
+    stream.download('S:\youtube')
+    # success message
+    print('Video Downloaded . . . .')
+except:
+    # error mesage 
+	print("error in given location or internet ! ") 
 
-#filters out all the files with "mp4" extension 
-mp4files = yt.filter('mp4') 
-
-#to set the name of the file 
-yt.set_filename('React-Admin-Crash-Course Video')
-
-#get the video with the extension and resolution passed in the get() function 
-d_video = yt.get(mp4files[-1].extension,mp4files[-1].resolution) 
-try: 
-	#downloading the video 
-	d_video.download(SAVE_PATH) 
-except: 
-	print("Some Error ! ") 
-print('Video Downloaded . . . .') 
 ```
 ---
 
@@ -47,9 +49,14 @@ print('Video Downloaded . . . .')
 ```py
 pip install pafy
 ```
+- Install youtube-dl Library :
+```py
+pip install youtube-dl
+```
 
 ```py
-import pafy 
+
+import pafy
 
 #link of the video to be downloaded
 url = "https://www.youtube.com/watch?v=EeoyxbpQ2K4&ab_channel=edureka%21"
@@ -60,10 +67,17 @@ for i in streams:
 	print(i) 
 	
 # get best resolution regardless of format 
-best = video.getbest() 
+stream = video.getbest() 
 
-print(best.resolution, best.extension) 
+#print(best.resolution, best.extension) 
 
-# Download the video 
-best.download() 
+try:
+    # Download the video 
+    stream.download(filepath="S:\youtube")
+    # success message
+    print("Video Downloaded")
+except:
+    # erroe message
+    print("error while downloading . . . .") 
+
 ```
