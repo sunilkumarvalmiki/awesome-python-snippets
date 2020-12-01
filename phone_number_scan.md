@@ -11,9 +11,8 @@ pip install phonenumbers
 
 ```
 
-```py
-
 - Install tabulate Library :
+```py
 
 pip install tabulate
 
